@@ -2,15 +2,14 @@
     <div>
       <!-- Aquí puedes incluir componentes base, como el header -->
       <HeaderComponent />
-      <h1>Organizador de eventos</h1>
-      <p>Esta página permitirá crear y gestionar eventos de juegos.</p>
-      <!-- Agrega aquí el formulario y la lógica para eventos -->
+      <h1>Creación de perfiles</h1>
+      <p>Realizar la personalizacion del perfil aqui</p>
+      <!-- Agrega aquí el perfil y la lógica para la personalizacion del perfil -->
     </div>
   </template>
   
   <script>
   import HeaderComponent from "./HeaderComponent.vue";
- 
   
   export default {
     components: {

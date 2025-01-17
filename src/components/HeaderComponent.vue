@@ -16,7 +16,7 @@
             <ul>
               <li><a href="category.html">Iniciar Sesión</a></li>
               <li><a href="category.html">Registrarse</a></li>
-              <li><a href="category.html">Ver Perfil</a></li>
+              <router-link to="/profile">Ver Perfil</router-link> 
               <li><a href="category.html">Cerrar Sesión</a></li>
             </ul>
           </li>
