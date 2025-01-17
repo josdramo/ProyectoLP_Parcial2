@@ -10,7 +10,7 @@
           <router-link to="/">Inicio</router-link>
           <li><a href="about.html">Noticias</a></li>
           <router-link to="/events">Eventos</router-link>
-          <li><a href="contact.html">Contact</a></li>
+          <router-link to="/post">Publicaciones</router-link>
           <li class="dropdown">
             <a href="#"><span>Perfil</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
