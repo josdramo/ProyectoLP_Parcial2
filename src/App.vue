@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div id="app">
+    <router-view :key="$route.fullPath" />
+    </div>
     <HeaderComponent />
     <SliderComponent :slides="slides" />
     <TrendingCategoryComponent :featuredPost="featuredPost" :posts="posts" />
