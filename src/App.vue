@@ -1,11 +1,9 @@
 <template>
   <div>
-    <div id="app">
-    <router-view :key="$route.fullPath" />
-    </div>
     <HeaderComponent />
     <SliderComponent :slides="slides" />
     <TrendingCategoryComponent :featuredPost="featuredPost" :posts="posts" />
+    <FooterComponent/>
   </div>
 </template>
 
@@ -13,12 +11,14 @@
 import HeaderComponent from "./components/HeaderComponent.vue";
 import SliderComponent from "./components/SliderComponent.vue";
 import TrendingCategoryComponent from "./components/TrendingCategoryComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
   components: {
     HeaderComponent,
     SliderComponent,
     TrendingCategoryComponent,
+    FooterComponent
   },
   data() {
     return {
