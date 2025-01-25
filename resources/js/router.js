@@ -4,8 +4,20 @@ import EventManager from "./components/EventManager.vue"; // Vista para gestiona
 import ProfileComponent from "./components/ProfileComponent.vue";
 import PostComponent from "./components/PostComponent.vue";
 import EventDetails from './components/EventDetails.vue';
+import Register from "./components/Register.vue";
+import Login from "./components/Login.vue";
 
 const routes = [
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
   {
     path: "/",
     name: "Home",

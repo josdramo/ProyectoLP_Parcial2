@@ -14,8 +14,8 @@
           <li class="dropdown">
             <a href="#"><span>Perfil</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="category.html">Iniciar Sesión</a></li>
-              <li><a href="category.html">Registrarse</a></li>
+              <router-link to="/login">Iniciar Sesión</router-link>
+              <router-link to="/register">Registrarse</router-link>
               <router-link to="/profile">Ver Perfil</router-link> 
               <li><a href="category.html">Cerrar Sesión</a></li>
             </ul>

@@ -14,7 +14,7 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->timestamp('start_time');
             $table->timestamp('end_time');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
         });
     }
