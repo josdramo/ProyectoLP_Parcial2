@@ -12,12 +12,10 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->unsignedBigInteger('created_by'); // ID del usuario que creó el evento
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
+            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -26,3 +24,4 @@ class CreateEventsTable extends Migration
         Schema::dropIfExists('events');
     }
 }
+

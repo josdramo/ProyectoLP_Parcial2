@@ -9,7 +9,12 @@ class EventController extends Controller
 {
     // Obtener todos los eventos
     public function index() {
-        return Event::all();
+        try {
+            $events = Event::all(); // Obtiene todos los eventos
+            return response()->json($events, 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
     
     public function store(Request $request) {
