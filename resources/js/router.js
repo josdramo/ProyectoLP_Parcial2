@@ -3,6 +3,7 @@ import HomeComponent from "./components/HomeComponent.vue"; // Nueva vista princ
 import EventManager from "./components/EventManager.vue"; // Vista para gestionar eventos
 import ProfileComponent from "./components/ProfileComponent.vue";
 import PostComponent from "./components/PostComponent.vue";
+import EventDetails from './components/EventDetails.vue';
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
     path: "/events",
     name: "EventManager",
     component: EventManager, // Ruta para organizar eventos
+  },
+  { path: '/events/:id', 
+    name: 'EventDetails', 
+    component: EventDetails 
   },
   {
     path: '/profile',
