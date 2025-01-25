@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel + Vue</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Carga de los activos CSS y JS -->
+    @vite([
+        'resources/css/bootstrap/dist/css/bootstrap.min.css',
+        'resources/js/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'resources/js/main.js'
+    ])
 </head>
 <body>
     <div id="app">
-        <!-- Este es el componente Vue que debería renderizar -->
-        <example-component></example-component>
+
+        <!-- Renderizado de Vue -->
     </div>
 </body>
 </html>
