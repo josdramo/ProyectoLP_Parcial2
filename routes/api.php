@@ -18,3 +18,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile/{id}', [ProfileController::class, 'show']); // Ver perfil
     Route::post('/profile/update', [ProfileController::class, 'update']); // Actualizar perfil
 });
+
+
