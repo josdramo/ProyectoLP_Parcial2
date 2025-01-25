@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Vue está funcionando</h1>
     <!-- Renderiza solo el contenido dinámico de las rutas -->
     <router-view :key="$route.fullPath" />
   </div>

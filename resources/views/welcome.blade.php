@@ -8,7 +8,8 @@
     @vite([
         'resources/css/bootstrap/dist/css/bootstrap.min.css',
         'resources/js/bootstrap/dist/js/bootstrap.bundle.min.js',
-        'resources/js/main.js'
+        'resources/js/main.js',
+        'resources/css/bootstrap/dist/css/main.css'
     ])
 </head>
 <body>

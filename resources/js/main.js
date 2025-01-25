@@ -5,6 +5,7 @@ import router from './router';
 // Importar estilos de Bootstrap
 import '../css/bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../css/bootstrap/dist/css/main.css'
 
 console.log('Iniciando Vue...');
 const app = createApp(App);

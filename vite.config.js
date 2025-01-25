@@ -7,6 +7,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/bootstrap/dist/css/bootstrap.min.css',
+                'resources/css/bootstrap/dist/css/main.css',
                 'resources/js/bootstrap/dist/js/bootstrap.bundle.min.js',
                 'resources/js/main.js',
             ],
