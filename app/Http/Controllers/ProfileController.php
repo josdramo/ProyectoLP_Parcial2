@@ -2,58 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ProfileService;
-use App\Services\FollowService;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    protected $profileService;
-    protected $followService;
-
-    public function __construct(ProfileService $profileService, FollowService $followService)
+    public function show($user_id)
     {
-        $this->profileService = $profileService;
-        $this->followService = $followService;
+        $profile = Profile::where('user_id', $user_id)->firstOrFail();
+        return response()->json($profile);
     }
 
-    public function show()
-    {
-        return response()->json($this->profileService->getProfile());
-    }
+    const STRING_NULLABLE = 'string|nullable';
 
-    public function update(Request $request)
+    public function update(Request $request, $user_id)
     {
-        return response()->json($this->profileService->updateProfile($request->all()));
-    }
+        $profile = Profile::where('user_id', $user_id)->firstOrFail();
 
-    public function changePassword(Request $request)
-    {
-        return response()->json($this->profileService->changePassword($request->current_password, $request->new_password));
-    }
+        $validatedData = $request->validate([
+            'username' => 'string|max:255',
+            'avatar' => self::STRING_NULLABLE,
+            'bio' => self::STRING_NULLABLE,
+            'posts_count' => 'integer|min:0',
+            'events_joined' => 'integer|min:0',
+            'achievements' => self::STRING_NULLABLE,
+        ]);
 
-    public function deleteAccount()
-    {
-        return response()->json($this->profileService->deleteAccount());
-    }
+        $profile->update($validatedData);
 
-    public function follow($id)
-    {
-        return response()->json($this->followService->followUser($id));
-    }
-
-    public function unfollow($id)
-    {
-        return response()->json($this->followService->unfollowUser($id));
-    }
-
-    public function followers()
-    {
-        return response()->json($this->followService->getFollowers());
-    }
-
-    public function following()
-    {
-        return response()->json($this->followService->getFollowing());
+        return response()->json(['message' => 'Perfil actualizado con éxito', 'profile' => $profile]);
     }
 }
