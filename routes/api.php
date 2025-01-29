@@ -14,8 +14,8 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::middleware('api')->group(function () {
-    Route::get('/posts', [PostController::class, 'index']); // Obtener publicaciones
-    Route::post('/posts', [PostController::class, 'store']); // Crear publicación
+    Route::get('/posts', [PostController::class, 'index']); 
+    Route::post('/posts', [PostController::class, 'store']); 
 });
 
 Route::get('/test', function () {

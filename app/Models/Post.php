@@ -2,16 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'content',
-        'image',
-    ];
+    protected $table = 'posts'; // Especifica la tabla si el nombre no es el estándar
+    protected $fillable = ['content', 'image']; // Asegúrate de que los campos sean correctos
 }
-

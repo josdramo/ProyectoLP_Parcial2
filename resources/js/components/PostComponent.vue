@@ -45,11 +45,11 @@
             :key="post.id"
             class="card mt-3 p-3 shadow-sm"
           >
-            <h5>{{ post.user.name }}</h5>
+          <h5>{{ post.user ? post.user.name : 'Usuario desconocido' }}</h5>
             <p>{{ post.content }}</p>
             <img
-              v-if="post.image_url"
-              :src="post.image_url"
+              v-if="post.image"
+              :src="post.image"
               alt="Imagen de publicación"
               class="img-fluid mt-2"
             />
@@ -97,26 +97,35 @@ export default {
     },
     // Crear una nueva publicación
     async createPost() {
-      try {
-        const formData = new FormData();
-        formData.append("content", this.newPost.content);
-        if (this.image) {
-          formData.append("image", this.image);
-        }
+    const formData = new FormData();
+    formData.append('content', this.newPost.content);
+    if (this.image) {
+    formData.append('image', this.image);
+    }
 
-        await axios.post("/api/posts", formData);
-        alert("Publicación creada con éxito.");
-        this.newPost.content = ""; // Limpiar formulario
-        this.image = null;
-        this.fetchPosts(); // Recargar publicaciones
-      } catch (error) {
-        console.error("Error al crear publicación:", error);
-        alert("Hubo un problema al crear la publicación.");
-      }
-    },
+    try {
+      const response = await axios.post('/api/posts', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      this.posts.push(response.data);  // Si la respuesta es correcta, actualizamos la lista de publicaciones
+    } catch (error) {
+      console.error('Error al crear publicación:', error);  // Captura cualquier error en la solicitud
+    }
+  },
+
+
     // Manejar archivo de imagen
     handleImage(event) {
-      this.image = event.target.files[0];
+      const file = event.target.files[0];
+  const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+  if (file && validImageTypes.includes(file.type)) {
+    this.image = file;
+  } else {
+    alert("Por favor, selecciona una imagen válida.");
+    this.image = null; // Limpiar la selección si no es una imagen válida
+  }
     },
     // Formatear fecha para mostrar en el feed
     formatDate(date) {
