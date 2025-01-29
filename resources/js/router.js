@@ -6,8 +6,14 @@ import PostComponent from "./components/PostComponent.vue";
 import EventDetails from './components/EventDetails.vue';
 import Register from "./components/Register.vue";
 import Login from "./components/Login.vue";
+import LogoutComponent from "./components/LogoutComponent.vue";
 
 const routes = [
+  {
+    path: "/logout",
+    name: "Logout",
+    component: LogoutComponent,
+  },
   {
     path: "/register",
     name: "Register",

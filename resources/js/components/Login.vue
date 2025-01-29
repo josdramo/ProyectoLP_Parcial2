@@ -54,7 +54,7 @@
       async login() {
         try {
           const { data } = await axios.post("/api/login", this.credentials);
-          localStorage.setItem("token", data.access_token);
+          localStorage.setItem("auth_token", data.access_token);
           alert("Inicio de sesión exitoso.");
           this.$router.push("/events");
         } catch (error) {

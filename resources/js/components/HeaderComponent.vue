@@ -1,9 +1,9 @@
 <template>
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <router-link to="/" href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <h1 class="sitename">SocialGaming</h1>
-      </a>
+      </router-link>
 
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -17,7 +17,7 @@
               <router-link to="/login">Iniciar Sesión</router-link>
               <router-link to="/register">Registrarse</router-link>
               <router-link to="/profile">Ver Perfil</router-link> 
-              <li><a href="category.html">Cerrar Sesión</a></li>
+              <router-link to="/logout">Cerrar Sesión</router-link>
             </ul>
           </li>
         </ul>
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
   name: "HeaderComponent",
 };

@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/events/{id}/join', [EventController::class, 'join']); // Unirse a evento
     Route::get('/profile/{id}', [ProfileController::class, 'show']); // Ver perfil
     Route::post('/profile/update', [ProfileController::class, 'update']); // Actualizar perfil
+    Route::get('/profile', [ProfileController::class, 'showAuthenticated']); // Nueva ruta
 });
 
 

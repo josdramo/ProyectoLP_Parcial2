@@ -32,4 +32,11 @@ class ProfileController extends Controller
 
         return response()->json(['message' => 'Perfil actualizado con éxito', 'profile' => $profile]);
     }
+    public function showAuthenticated(Request $request)
+{
+    return response()->json([
+        'username' => $request->user()->name,
+        'email' => $request->user()->email
+    ]);
+}
 }
