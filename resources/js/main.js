@@ -6,6 +6,8 @@ import router from './router';
 import '../css/bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../css/bootstrap/dist/css/main.css'
+import './bootstrap/swiper/swiper-bundle.min.css'
+import './bootstrap/swiper/swiper-bundle.min.js'
 
 console.log('Iniciando Vue...');
 const app = createApp(App);

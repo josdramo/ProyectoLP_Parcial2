@@ -5,13 +5,13 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-                <span class="sitename">ZenBlog</span>
+                <span class="sitename">SocialGaming</span>
             </a>
             <div class="footer-contact pt-3">
-                <p>A108 Adam Street</p>
-                <p>New York, NY 535022</p>
-                <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                <p><strong>Email:</strong> <span>info@example.com</span></p>
+                <p>A108 Calle</p>
+                <p>Ecuador, Nueve de Octubre</p>
+                <p class="mt-3"><strong>Phone:</strong> <span>+593 9 12348571</span></p>
+                <p><strong>Email:</strong> <span>socialGaming@gmail.com</span></p>
             </div>
             <div class="social-links d-flex mt-4">
                 <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -22,13 +22,13 @@
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links Utiles</h4>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Terms of service</a></li>
-                <li><a href="#">Privacy policy</a></li>
+                <li><router-link to="/">Inicio</router-link></li>
+                <li><router-link to="/">Noticias</router-link></li>
+                <li><router-link to="/events">Eventos</router-link></li>
+                <li><router-link to="/post">Publicaciones</router-link></li>
+                <li><router-link to="/">Términos de Privacidad</router-link></li>
             </ul>
             </div>
 
@@ -69,7 +69,7 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">ZenBlog</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">SocialGaming</strong> <span>All Rights Reserved</span></p>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you've purchased the pro version. -->
