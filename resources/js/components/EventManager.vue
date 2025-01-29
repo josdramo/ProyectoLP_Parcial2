@@ -107,7 +107,7 @@
       try {
         const { data } = await axios.get("/api/events", {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
           },
         });
         this.events = data;
@@ -117,7 +117,7 @@
     },
     async createEvent() {
     try {
-        const token = localStorage.getItem('token'); // Recupera el token almacenado
+        const token = localStorage.getItem('auth_token'); // Recupera el token almacenado
         const response = await axios.post('/api/events', this.event, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@
       try {
         await axios.post(`/api/events/${eventId}/join`, {}, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
           },
         });
         alert("Te has unido al evento");

@@ -81,7 +81,7 @@ export default {
               // Redirigir al usuario después de la desconexión
               setTimeout(() => {
                   this.$router.push("/");
-              }, 10000);
+              }, 5000);
 
           } catch (error) {
               console.error("❌ Error en logout:", error);
