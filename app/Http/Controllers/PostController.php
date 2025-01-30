@@ -26,8 +26,11 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->hashName(); // Crear un nombre único para la imagen
-            $image->storeAs('public/posts', $imageName); // Guardar en el directorio adecuado
-            $post->image = $imageName;
+            $imageName = time().'.'.$image->extension();
+            $image->move(storage_path('app/public/posts/'), $imageName);
+            $post->image = "/storage/posts/" . $imageName; // Ruta accesible desde el navegador
+
+
         }
     
         $post->save();
