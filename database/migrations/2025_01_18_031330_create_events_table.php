@@ -16,6 +16,7 @@ class CreateEventsTable extends Migration
             $table->timestamp('end_time');
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
+            
         });
     }
 

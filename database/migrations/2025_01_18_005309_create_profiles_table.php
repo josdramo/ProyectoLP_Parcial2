@@ -19,7 +19,7 @@ return new class extends Migration
         $table->text('bio')->nullable(); // Descripcion del usuario
         $table->integer('posts_count')->default(0); //cantidad de publicaciones
         $table->integer('events_joined')->default(0); //eventos en los que participo
-        $table->integer('achievements')->default(0); //logros desbloqueados
+        $table->json('achievements')->nullable(); //logros desbloqueados
         $table->timestamps();
 
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

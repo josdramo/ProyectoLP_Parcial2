@@ -1,9 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -13,30 +14,64 @@ class ProfileController extends Controller
         return response()->json($profile);
     }
 
-    const STRING_NULLABLE = 'string|nullable';
-
-    public function update(Request $request, $user_id)
-    {
-        $profile = Profile::where('user_id', $user_id)->firstOrFail();
-
-        $validatedData = $request->validate([
-            'username' => 'string|max:255',
-            'avatar' => self::STRING_NULLABLE,
-            'bio' => self::STRING_NULLABLE,
-            'posts_count' => 'integer|min:0',
-            'events_joined' => 'integer|min:0',
-            'achievements' => self::STRING_NULLABLE,
-        ]);
-
-        $profile->update($validatedData);
-
-        return response()->json(['message' => 'Perfil actualizado con éxito', 'profile' => $profile]);
-    }
     public function showAuthenticated(Request $request)
-{
-    return response()->json([
-        'username' => $request->user()->name,
-        'email' => $request->user()->email
-    ]);
-}
+    {
+        $user = Auth::user();
+        $profile = Profile::where('user_id', $user->id)->first();
+
+        return response()->json([
+            'username' => $user->name,
+            'email' => $user->email,
+            'avatar' => $profile->avatar ?? '',
+            'bio' => $profile->bio ?? '',
+            'achievements' => json_encode($profile->achievements, true) ?? [],
+            
+        ]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        try {
+            $user = Auth::user();
+            if (!$user) {
+                return response()->json(['error' => 'Usuario no autenticado'], 401);
+            }
+
+            $profile = Profile::where('user_id', $user->id)->firstOrCreate(
+                ['user_id' => $user->id], 
+                [
+                    'username' => $user->name,
+                    'avatar' => '/default-avatar.png',
+                    'bio' => 'Ingresa tu bio.',
+                    'posts_count' => 0,
+                    'events_joined' => 0,
+                    'achievements' => json_encode([]),
+                ]
+            );
+            $validatedData = $request->validate([
+                'username' => 'nullable|string|max:255',
+            'avatar' => 'nullable|string',
+            'bio' => 'nullable|string',
+            'achievements' => 'nullable|array', 
+            'posts_count' => 'nullable|integer|min:0',
+            'events_joined' => 'nullable|integer|min:0',
+            ]);
+
+            $validatedData['achievements'] = json_encode($validatedData['achievements']?? []);
+
+            $profile->update($validatedData);
+
+            return response()->json([
+                'message' => 'Perfil actualizado con éxito',
+                'profile' => $profile
+            ], 200);
+
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar perfil: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Error interno del servidor',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
 }

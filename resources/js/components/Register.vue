@@ -70,6 +70,7 @@
           this.$router.push("/login");
         } catch (error) {
           console.error("Error al registrarse:", error);
+          console.log("Detalles del error:", error.response?.data);
         }
       },
     },
