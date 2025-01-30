@@ -16,18 +16,11 @@ class ProfileController extends Controller
 
     public function showAuthenticated(Request $request)
     {
-        $user = Auth::user();
-        $profile = Profile::where('user_id', $user->id)->first();
-
         return response()->json([
-            'username' => $user->name,
-            'email' => $user->email,
-            'avatar' => $profile->avatar ?? '',
-            'bio' => $profile->bio ?? '',
-            'achievements' => json_encode($profile->achievements, true) ?? [],
-            
+            'username' => $request->user()->name,
+            'email' => $request->user()->email
         ]);
-    }
+    }   
 
     public function updateProfile(Request $request)
     {
