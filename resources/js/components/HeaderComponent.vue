@@ -8,7 +8,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <router-link to="/">Inicio</router-link>
-          <li><a href="about.html">Noticias</a></li>
+          <router-link to="/team">Sobre Nosotros</router-link>
           <router-link to="/events">Eventos</router-link>
           <router-link to="/post">Publicaciones</router-link>
           <li class="dropdown">

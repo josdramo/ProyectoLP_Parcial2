@@ -7,8 +7,14 @@ import EventDetails from './components/EventDetails.vue';
 import Register from "./components/Register.vue";
 import Login from "./components/Login.vue";
 import LogoutComponent from "./components/LogoutComponent.vue";
+import TeamSection from "./components/TeamSection.vue";
 
 const routes = [
+  {
+    path: "/team",
+    name: "Team",
+    component: TeamSection,
+  },
   {
     path: "/logout",
     name: "Logout",

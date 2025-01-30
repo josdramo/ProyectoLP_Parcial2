@@ -8,6 +8,8 @@ import './bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../css/bootstrap/dist/css/main.css'
 import './bootstrap/swiper/swiper-bundle.min.css'
 import './bootstrap/swiper/swiper-bundle.min.js'
+import './bootstrap-icons/bootstrap-icons.css'
+import './bootstrap-icons/bootstrap-icons.min.css'
 
 console.log('Iniciando Vue...');
 const app = createApp(App);

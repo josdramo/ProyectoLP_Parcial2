@@ -56,7 +56,7 @@
           const { data } = await axios.post("/api/login", this.credentials);
           localStorage.setItem("auth_token", data.access_token);
           alert("Inicio de sesión exitoso.");
-          this.$router.push("/events");
+          this.$router.push("/");
         } catch (error) {
           console.error("Error al iniciar sesión:", error);
         }
